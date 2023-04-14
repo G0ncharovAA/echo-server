@@ -1,0 +1,132 @@
+PS C:\home\projects\vs_code\echo-server> git log --oneline
+2c6971e (HEAD -> main, github/main) port changed to 5550
+d979825 client to readme
+630a413 client
+4da2587 conflict resolved
+2091788 (main2) added README
+780a5e3 Initial commit
+de8d965 initial commit
+
+PS C:\home\projects\vs_code\echo-server> git diff d979825
+diff --git a/client.py b/client.py
+index 5d783aa..4153b02 100644
+--- a/client.py
++++ b/client.py
+@@ -2,7 +2,7 @@ import socket
+ import threading
+
+ IP = '127.0.0.1'
+-PORT = 5555
++PORT = 5550
+
+ s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+ s.connect(([IP], [PORT]))
+diff --git a/server.py b/server.py
+index f1e5c7b..825ad5a 100644
+--- a/server.py
++++ b/server.py
+@@ -4,7 +4,7 @@ import threading
+
+ # Connection Data
+ host = '127.0.0.1'
+-port = 55555
++port = 55550
+
+ # Starting Server
+ server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+ PS C:\home\projects\vs_code\echo-server> git diff 630a413
+diff --git a/README.md b/README.md
+index b0760cc..13ddaca 100644
+--- a/README.md
++++ b/README.md
+@@ -1 +1,3 @@
+-## My Python Echo server and client
+\ No newline at end of file
++## My Python Echo server and client
++
++client.py added
+\ No newline at end of file
+diff --git a/client.py b/client.py
+index 5d783aa..4153b02 100644
+--- a/client.py
++++ b/client.py
+@@ -2,7 +2,7 @@ import socket
+ import threading
+
+ IP = '127.0.0.1'
+-PORT = 5555
++PORT = 5550
+
+ s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+ s.connect(([IP], [PORT]))
+diff --git a/server.py b/server.py
+index f1e5c7b..825ad5a 100644
+--- a/server.py
++++ b/server.py
+@@ -4,7 +4,7 @@ import threading
+
+ # Connection Data
+ host = '127.0.0.1'
+-port = 55555
++port = 55550
+
+ # Starting Server
+ server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+ PS C:\home\projects\vs_code\echo-server> git diff 4da2587
+diff --git a/README.md b/README.md
+index b0760cc..13ddaca 100644
+--- a/README.md
++++ b/README.md
+@@ -1 +1,3 @@
+-## My Python Echo server and client
+\ No newline at end of file
++## My Python Echo server and client
++
++client.py added
+\ No newline at end of file
+diff --git a/client.py b/client.py
+new file mode 100644
+index 0000000..4153b02
+--- /dev/null
++++ b/client.py
+@@ -0,0 +1,24 @@
++import socket
++import threading
++
++IP = '127.0.0.1'
++PORT = 5550
++
++s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
++s.connect(([IP], [PORT]))
++
++def listen_thread():
++    while True:
++        data = s.recv(1024)
++        print(data.decode('ascii'))
++
++listen_thread = threading.Thread(target=listen_thread)
++listen_thread.start()
++
++def send_message(msg):
++    s.send(msg.encode('ascii'))
++
++prompt = ""
++while prompt !=  "q":
++    prompt = input()
++    send_message(prompt)
+\ No newline at end of file
+diff --git a/server.py b/server.py
+index f1e5c7b..825ad5a 100644
+--- a/server.py
++++ b/server.py
+@@ -4,7 +4,7 @@ import threading
+
+ # Connection Data
+ host = '127.0.0.1'
+-port = 55555
++port = 55550
+
+ # Starting Server
+ server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
