@@ -134,3 +134,17 @@ index f1e5c7b..825ad5a 100644
 PS C:\home\projects\vs_code\echo-server> git revert d979825
 PS C:\home\projects\vs_code\echo-server> git revert 2c6971e 
 PS C:\home\projects\vs_code\echo-server> git revert 630a413
+
+PS C:\home\projects\vs_code\echo-server> git log --oneline 
+3e02dd5 (HEAD -> main, github/main) reverted commits in history
+62b703c Revert "client"
+3f790f0 Revert "port changed to 5550"
+6b08cdc Revert "client to readme"
+3c74e15 history with commits diff
+2c6971e port changed to 5550
+d979825 client to readme
+630a413 client
+4da2587 conflict resolved
+2091788 (main2) added README
+780a5e3 Initial commit
+de8d965 initial commit
