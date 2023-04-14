@@ -4,7 +4,7 @@ import threading
 
 # Connection Data
 host = '127.0.0.1'
-port = 55555
+port = 55550
 
 # Starting Server
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
