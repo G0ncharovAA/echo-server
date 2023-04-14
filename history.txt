@@ -130,3 +130,7 @@ index f1e5c7b..825ad5a 100644
 
  # Starting Server
  server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+PS C:\home\projects\vs_code\echo-server> git revert d979825
+PS C:\home\projects\vs_code\echo-server> git revert 2c6971e 
+PS C:\home\projects\vs_code\echo-server> git revert 630a413
